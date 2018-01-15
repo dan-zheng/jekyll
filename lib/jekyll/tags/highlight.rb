@@ -127,11 +127,14 @@ MSG
       end
 
       def add_code_tag(code)
-        code_attributes = [
+        lang_attributes = [
           "class=\"language-#{@lang.to_s.tr("+", "-")}\"",
           "data-lang=\"#{@lang}\"",
         ].join(" ")
-        "<figure class=\"highlight\"><pre><code #{code_attributes}>"\
+        highlight_attributes = [
+          "class=\"highlight\""
+        ].join(" ")
+        "<figure #{lang_attributes}><pre #{highlight_attributes}><code #{highlight_attributes}>"\
         "#{code.chomp}</code></pre></figure>"
       end
     end
